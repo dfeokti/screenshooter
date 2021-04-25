@@ -1,5 +1,5 @@
 import { APIGatewayProxyEventV2, APIGatewayProxyHandlerV2 } from 'aws-lambda';
-import chromium = require('chrome-aws-lambda');
+const chromium = require('chrome-aws-lambda');
 import { S3 } from 'aws-sdk';
 
 export const handler: APIGatewayProxyHandlerV2 = async (
