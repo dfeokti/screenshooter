@@ -19,7 +19,7 @@ export class ScreenshooterStack extends cdk.Stack {
     const httpApi = new apigwv2.HttpApi(this, 'screenshooterApi', {
       corsPreflight: {
         allowHeaders: ['*'],
-        allowMethods: [apigwv2.HttpMethod.GET],
+        allowMethods: [apigwv2.CorsHttpMethod.GET],
         allowOrigins: ['*'],
       },
     });
@@ -46,7 +46,7 @@ export class ScreenshooterStack extends cdk.Stack {
         entry: `${__dirname}/../lambda/screenshooter.ts`,
         handler: 'handler',
         memorySize: 2048,
-        timeout: cdk.Duration.seconds(30),
+        timeout: cdk.Duration.minutes(1),
         bundling: {
           externalModules: ['aws-sdk', 'chrome-aws-lambda'],
         },
